@@ -36,20 +36,21 @@ Adversarial attacks pose a significant challenge to image retrieval systems, lea
    ```bash
    pip install -r requirements.txt
    ```
+   (`requirements.txt` is identical to [RobRank](https://github.com/cdluminate/robrank). 
 
 ## Usage
 
 ### Dataset Preparation
-Download the datasets CUB, CARS and SOP from the official site or on Kaggle.
+Download the datasets CUB, CARS and SOP from the official site or on Kaggle, and put them under the `datasets` file.
 
 
 ### Training
-To train the model:
+To train the model, use `[dataset]:[model]:[method]' to train through our CA-TRIDE:
 ```bash
-python train.py --config config.yaml
+python train.py -C cub:rres18p:pgtripletN   #CUB
+python train.py -C cars:rres18p:pgtripletN  #CARS
+python train.py -C sop:rres18p:pgtripletN   #SOP
 ```
-Customize training parameters such as batch size, learning rate, and epochs in `config.yaml`.
-
 
 ## Results
 The proposed CA-TRIDE achieves state-of-the-art adversarial robustness on standard benchmarks. Detailed results can be found in the `results/` folder and in our paper [here](https://arxiv.org/abs/2312.07364).
