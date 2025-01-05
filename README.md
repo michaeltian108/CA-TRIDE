@@ -15,7 +15,7 @@ This repository provides the official implementation of **"Collapse-Aware Triple
 - [Update Log](#update-log)
 - [To-do](#to-do)
 - [Citation](#citation)
-- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## Introduction
 Adversarial attacks pose a significant challenge to image retrieval systems, leading to inaccurate or maliciously manipulated results. CA-TRIDE proposes a robust framework to mitigate these challenges by leveraging collapse-aware mechanisms and triplet loss decoupling. Our method achieves:
@@ -122,6 +122,9 @@ url={https://openreview.net/forum?id=cy3JBZKCw1}
 }
 ```
 
-## License
-This project is licensed under the [MIT License](LICENSE).
+## Acknowledgments
+We would like to express our gratitude to  **@cdluminate** as our project is inspired and built upon the great work from at [RobRank](https://github.com/cdluminate/robrank). 
+Thank you for your support and contributions!
+
+
 
