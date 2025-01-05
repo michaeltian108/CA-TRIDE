@@ -49,7 +49,11 @@ import tensorflow as tf
 
 global assist_or_not 
 global Perturbing_method
+global lbd
 Perturbing_method = 'Candidate'
+lbd = 10. # for CUB dataset
+# lbd = 9.5 # for CARS dataset
+# lbd = 2. # for SOP dataset
 
 last_modify_epoch = 0.0
 class PositiveNegativePerplexing(object):
@@ -74,10 +78,7 @@ class PositiveNegativePerplexing(object):
         Helping DNN to separate N and P 
         '''
         global last_modify_epoch
-        global last_c
-        # global lbd
-        lbd_p = 10.
-        lbd_n = lbd_p
+        global lbd
         anc, pos, neg = triplets
         impos = images[pos, :, :, :].clone().detach().to(self.device)
         imneg = images[neg, :, :, :].clone().detach().to(self.device)
@@ -113,8 +114,8 @@ class PositiveNegativePerplexing(object):
                 '''
                 Calculate Collapsness
                 '''
-                w_ap = th.exp( lbd_p*(dis_ap - max(dis_ap)))
-                w_an = th.exp( lbd_n*(dis_an - max(dis_an)))
+                w_ap = th.exp( lbd*(dis_ap - max(dis_ap)))
+                w_an = th.exp( lbd*(dis_an - max(dis_an)))
                 w_m_ap = (w_ap*dis_ap).sum()/(w_ap.sum())
                 w_m_an = (w_an*dis_an).sum()/(w_an.sum())
           
@@ -171,8 +172,9 @@ class PositiveNegativePerplexing(object):
         images.requires_grad = True
         adv_decay = 1.*epoch/maxepoch
         # start PGD
-        lbd_p = 10.
-        lbd_n = lbd_p
+
+        global lbd
+
         self.model.eval()
         pgd_qa_n = 16
 
@@ -209,8 +211,8 @@ class PositiveNegativePerplexing(object):
                 '''
                 Calculate Collapseness
                 '''
-                w_ap = th.exp( lbd_p*(dis_ap - max(dis_ap)))
-                w_an = th.exp( lbd_n*(dis_an - max(dis_an)))
+                w_ap = th.exp( lbd*(dis_ap - max(dis_ap)))
+                w_an = th.exp( lbd*(dis_an - max(dis_an)))
                 w_m_ap = (w_ap*dis_ap).sum()/(w_ap.sum())
                 w_m_an = (w_an*dis_an).sum()/(w_an.sum())
 
