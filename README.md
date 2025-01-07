@@ -30,8 +30,7 @@ Adversarial attacks pose a significant challenge to image retrieval systems, lea
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/ca-tride.git
-   cd ca-tride
+   git clone https://github.com/michaeltian108/CA-TRIDE.git
    ```
 2. Install dependencies:
    ```bash
