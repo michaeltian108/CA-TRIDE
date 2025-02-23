@@ -18,10 +18,7 @@ This repository provides the official implementation of **"Collapse-Aware Triple
 - [Acknowledgments](#acknowledgments)
 
 ## Introduction
-Adversarial attacks pose a significant challenge to image retrieval systems, leading to inaccurate or maliciously manipulated results. CA-TRIDE proposes a robust framework to mitigate these challenges by leveraging collapse-aware mechanisms and triplet loss decoupling. Our method achieves:
-
-- Enhanced retrieval robustness under adversarial settings.
-- Improved performance on benign examples while maintaining computational efficiency.
+Adversarial training has achieved substantial performance in defending image retrieval against adversarial examples. However, existing studies in deep metric learning (DML) still suffer from two major limitations: weak adversary and model collapse. In this paper, we address these two limitations by proposing Collapse-Aware TRIplet DEcoupling (CA-TRIDE). Specifically, TRIDE yields a stronger adversary by spatially decoupling the perturbation targets into the anchor and the other candidates. Furthermore, CA prevents the consequential model collapse, based on a novel metric, collapseness, which is incorporated into the optimization of perturbation. We also identify two drawbacks of the existing robustness metric in image retrieval and propose a new metric for a more reasonable robustness evaluation. Extensive experiments on three datasets demonstrate that CA-TRIDE outperforms existing defense methods in both conventional and new metrics. 
 
 ## Features
 - **Collapse-Aware**: Dynamically tracks collapseness to avoid model collapse.
